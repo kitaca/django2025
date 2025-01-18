@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Login Page" />
+        <meta name="author" content="kitaca" />
+        <title>Login Page</title>
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    </head>
+    <body>
+        <!-- Login Form -->
+        <div class="container d-flex justify-content-center align-items-center min-vh-100">
+            <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px;">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">Login</h3>
+                    <form method="POST" action="/login/">
+                        {% csrf_token %}
+                        <!-- Username Field -->
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required />
+                        </div>
+                        <!-- Password Field -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required />
+                        </div>
+                        <!-- Remember Me Checkbox -->
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember Me</label>
+                        </div>
+                        <!-- Submit Button -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </form>
+                    <!-- Additional Links -->
+                    <div class="text-center mt-4">
+                        <a href="/register/" class="d-block">Create an account</a>
+                        <a href="/password-reset/" class="d-block">Forgot your password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap JavaScript -->
+        <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+    </body>
+</html>

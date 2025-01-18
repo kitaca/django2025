@@ -1,15 +1,129 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>회사소개</title>
-</head>
-<body>
-<nav>
-    <a href="/company/">company info</a>
-    <a href="/product/">product</a>
-</nav>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Company Introduction" />
+        <meta name="author" content="kitaca" />
+        <title>About Our Company</title>
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-5">
+                <a class="navbar-brand" href="/">Start Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="/company/">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/product/">Product</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login/">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-<h1>회사소개 페이지입니다.</h1>
-</body>
+        <!-- Header Section -->
+        <header class="bg-primary py-5">
+            <div class="container text-center text-white">
+                <h1 class="display-4">Welcome to Our Company</h1>
+                <p class="lead">We are committed to delivering excellence and innovation in all we do.</p>
+            </div>
+        </header>
+
+        <!-- About Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="mb-4">Who We Are</h2>
+                        <p>Our company has been a leader in the industry for over 20 years. With a focus on innovation and customer satisfaction, we strive to deliver high-quality products and services that make a difference in people's lives.</p>
+                        <p>Our dedicated team of professionals works tirelessly to ensure that we exceed expectations and set new standards in the industry.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <img class="img-fluid rounded" src="https://dummyimage.com/700x400/ccc/000.jpg" alt="About our company" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission and Vision Section -->
+        <section class="bg-light py-5">
+            <div class="container text-center">
+                <h2 class="mb-4">Our Mission and Vision</h2>
+                <p class="mb-5">We aim to inspire and empower our customers through our innovative solutions, while making a positive impact on society and the environment.</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow">
+                            <div class="card-body">
+                                <h5 class="card-title">Our Mission</h5>
+                                <p class="card-text">To provide world-class products and services that meet the needs of our customers and contribute to a sustainable future.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow">
+                            <div class="card-body">
+                                <h5 class="card-title">Our Vision</h5>
+                                <p class="card-text">To be a global leader in innovation, setting benchmarks in quality, sustainability, and customer satisfaction.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Meet Our Team</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow">
+                            <img class="card-img-top" src="https://dummyimage.com/300x300/ddd/000.jpg" alt="Team Member" />
+                            <div class="card-body text-center">
+                                <h5 class="card-title">John Doe</h5>
+                                <p class="card-text">CEO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow">
+                            <img class="card-img-top" src="https://dummyimage.com/300x300/ddd/000.jpg" alt="Team Member" />
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Jane Smith</h5>
+                                <p class="card-text">CTO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow">
+                            <img class="card-img-top" src="https://dummyimage.com/300x300/ddd/000.jpg" alt="Team Member" />
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Emily Johnson</h5>
+                                <p class="card-text">COO</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-5 bg-dark">
+            <div class="container text-center text-white">
+                <p class="m-0">&copy; 2023 Our Company. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <!-- Bootstrap JavaScript -->
+        <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+    </body>
 </html>
