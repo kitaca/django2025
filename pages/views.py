@@ -8,3 +8,9 @@ def company(request):
 
 def login(request):
     return render(request, 'pages/login.html')
+
+def signup(request):
+    return render(request, 'pages/signup.html')
+
+def service(request):
+    return render(request, 'pages/service.html')
