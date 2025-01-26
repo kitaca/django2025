@@ -14,98 +14,97 @@
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
 </head>
 <body>
-<div class="d-flex" id="wrapper">
-    <!-- Sidebar-->
-    <div class="border-end bg-white" id="sidebar-wrapper">
-        <div class="sidebar-heading border-bottom bg-light">메뉴</div>
-        <div class="list-group list-group-flush">
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/">홈</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/company/">소개</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/product/">제품</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/service/">고객지원</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/community/">커뮤니티</a>
-        </div>
-    </div>
-    <!-- Page content wrapper-->
-    <div id="page-content-wrapper">
-        <!-- Top navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-            <div class="container-fluid">
-                <button class="btn" id="sidebarToggle" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="navbar-brand mx-auto" href="/">ChocoTech</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                        <li class="nav-item active"><a class="nav-link" href="/">홈</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/login/">로그인</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/signup/">회원가입</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">지역</a>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#!">대한민국(국내)</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#!">International(국외)</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Page content-->
+<div id="wrapper">
+    <!-- Secondary Navigation (Top) -->
+    <nav class="navbar navbar-expand-lg bg-dark text-white">
         <div class="container-fluid">
-            <h1 class="mt-5 mb-5">고객지원</h1>
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <!-- Download Card -->
-                <div class="col-md-4 mb-5">
-                    <a href="/support/download/" class="text-decoration-none">
-                        <div class="card h-100 text-center shadow">
-                            <img class="card-img-top" src="https://dummyimage.com/300x300/dee2e6/6c757d.jpg"
-                                 alt="다운로드 이미지">
-                            <div class="card-body">
-                                <h2 class="card-title">다운로드</h2>
-                                <p class="card-text">제품 사용 설명서 및 소프트웨어를 다운로드하세요.</p>
-                            </div>
+            <a class="navbar-brand text-white" href="/">ChocoTech</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#secondaryNavbar"
+                    aria-controls="secondaryNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="secondaryNavbar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-white" href="/login/">로그인</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/signup/">회원가입</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" id="regionDropdown" href="#" role="button"
+                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">지역</a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="regionDropdown">
+                            <a class="dropdown-item" href="#!">대한민국(국내)</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#!">International(국외)</a>
                         </div>
-                    </a>
-                </div>
-                <!-- A/S Application Card -->
-                <div class="col-md-4 mb-5">
-                    <a href="/support/as-application/" class="text-decoration-none">
-                        <div class="card h-100 text-center shadow">
-                            <img class="card-img-top" src="https://dummyimage.com/300x300/dee2e6/6c757d.jpg"
-                                 alt="A/S 신청 이미지">
-                            <div class="card-body">
-                                <h2 class="card-title">A/S 신청</h2>
-                                <p class="card-text">제품 수리 및 서비스를 신청하세요.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- Quality Assurance Card -->
-                <div class="col-md-4 mb-5">
-                    <a href="/support/warranty/" class="text-decoration-none">
-                        <div class="card h-100 text-center shadow">
-                            <img class="card-img-top" src="https://dummyimage.com/300x300/dee2e6/6c757d.jpg"
-                                 alt="품질보증 이미지">
-                            <div class="card-body">
-                                <h2 class="card-title">품질보증 정보</h2>
-                                <p class="card-text">제품 품질보증 정책 및 조건을 확인하세요.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
 
+    <!-- Main Top Navigation -->
+    <nav class="navbar navbar-expand-lg bg-dark text-white border-bottom">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav justify-content-center w-100">
+                    <li class="nav-item"><a class="nav-link text-white px-3" href="/">홈</a></li>
+                    <li class="nav-item"><a class="nav-link text-white px-3" href="/company/">소개</a></li>
+                    <li class="nav-item"><a class="nav-link text-white px-3" href="/product/">제품</a></li>
+                    <li class="nav-item"><a class="nav-link text-white px-3" href="/service/">고객지원</a></li>
+                    <li class="nav-item"><a class="nav-link text-white px-3" href="/community/">커뮤니티</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container-fluid">
+        <h1 class="mt-5 mb-5">고객지원</h1>
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <!-- Download Card -->
+            <div class="col-md-4 mb-5">
+                <a href="/support/download/" class="text-decoration-none">
+                    <div class="card h-100 text-center shadow">
+                        <img class="card-img-top" src="https://dummyimage.com/300x300/dee2e6/6c757d.jpg" alt="다운로드 이미지">
+                        <div class="card-body">
+                            <h2 class="card-title">다운로드</h2>
+                            <p class="card-text">제품 사용 설명서 및 소프트웨어를 다운로드하세요.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- A/S Application Card -->
+            <div class="col-md-4 mb-5">
+                <a href="/support/as-application/" class="text-decoration-none">
+                    <div class="card h-100 text-center shadow">
+                        <img class="card-img-top" src="https://dummyimage.com/300x300/dee2e6/6c757d.jpg" alt="A/S 신청 이미지">
+                        <div class="card-body">
+                            <h2 class="card-title">A/S 신청</h2>
+                            <p class="card-text">제품 수리 및 서비스를 신청하세요.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Quality Assurance Card -->
+            <div class="col-md-4 mb-5">
+                <a href="/support/warranty/" class="text-decoration-none">
+                    <div class="card h-100 text-center shadow">
+                        <img class="card-img-top" src="https://dummyimage.com/300x300/dee2e6/6c757d.jpg" alt="품질보증 이미지">
+                        <div class="card-body">
+                            <h2 class="card-title">품질보증 정보</h2>
+                            <p class="card-text">제품 품질보증 정책 및 조건을 확인하세요.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
+
+
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
