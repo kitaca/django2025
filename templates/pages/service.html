@@ -15,23 +15,20 @@
 </head>
 <body>
 <div id="wrapper">
-    <!-- Secondary Navigation (Top) -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand mx-auto" href="/">ChocoTech</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#secondaryNavbar"
-                    aria-controls="secondaryNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" id="navbarToggler" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="secondaryNavbar">
-                <ul class="navbar-nav ms-auto">
+            <div class="collapse navbar-collapse" id="navbarContent1">
+                <ul class="navbar-nav ms-auto text-">
                     <li class="nav-item"><a class="nav-link" href="/login/">로그인</a></li>
                     <li class="nav-item"><a class="nav-link" href="/signup/">회원가입</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="regionDropdown" href="#" role="button"
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">지역</a>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="regionDropdown">
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#!">대한민국(국내)</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#!">International(국외)</a>
@@ -42,20 +39,15 @@
         </div>
     </nav>
 
-    <!-- Main Top Navigation -->
-    <nav class="navbar navbar-expand-lg bg-dark text-white border-bottom">
+    <!-- Second Top Navigation (Menu Bar) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav justify-content-center w-100">
-                    <li class="nav-item"><a class="nav-link text-white px-3" href="/">홈</a></li>
-                    <li class="nav-item"><a class="nav-link text-white px-3" href="/company/">소개</a></li>
-                    <li class="nav-item"><a class="nav-link text-white px-3" href="/product/">제품</a></li>
-                    <li class="nav-item"><a class="nav-link text-white px-3" href="/service/">고객지원</a></li>
-                    <li class="nav-item"><a class="nav-link text-white px-3" href="/community/">커뮤니티</a></li>
+            <div class="collapse navbar-collapse" id="navbarContent2">
+                <ul class="navbar-nav justify-content-evenly w-100">
+                    <li class="nav-item"><a class="nav-link" href="/company/">소개</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/product/">제품</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/service/">고객지원</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/community/">커뮤니티</a></li>
                 </ul>
             </div>
         </div>
@@ -66,43 +58,61 @@
         <h1 class="mt-5 mb-5">고객지원</h1>
         <div class="row gx-4 gx-lg-5 justify-content-around">
             <!-- Download Card -->
-            <div class="col-md-3 mb-auto">
+            <div class="col-md-3 mb-5">
                 <a href="/support/download/" class="text-decoration-none">
                     <div class="card h-100 text-center shadow">
                         <img class="card-img-top" src="https://dummyimage.com/300x300/dee2e6/6c757d.jpg" alt="다운로드 이미지">
                         <div class="card-body">
                             <h2 class="card-title">다운로드</h2>
-                            <p class="card-text">제품 사용 설명서 및 소프트웨어를 다운로드하세요.</p>
+                            <p class="card-text">제품 사용 설명서 및 소프트웨어 다운로드</p>
                         </div>
                     </div>
                 </a>
             </div>
             <!-- A/S Application Card -->
-            <div class="col-md-3 mb-auto">
+            <div class="col-md-3 mb-5">
                 <a href="/support/as-application/" class="text-decoration-none">
                     <div class="card h-100 text-center shadow">
-                        <img class="card-img-top" src="https://dummyimage.com/300x300/dee2e6/6c757d.jpg" alt="A/S 신청 이미지">
+                        <img class="card-img-top" src="https://dummyimage.com/300x300/dee2e6/6c757d.jpg"
+                             alt="A/S 신청 이미지">
                         <div class="card-body">
                             <h2 class="card-title">A/S 신청</h2>
-                            <p class="card-text">제품 수리 및 서비스를 신청하세요.</p>
+                            <p class="card-text">제품 수리 및 서비스 신청</p>
                         </div>
                     </div>
                 </a>
             </div>
             <!-- Quality Assurance Card -->
-            <div class="col-md-3 mb-auto">
+            <div class="col-md-3 mb-5">
                 <a href="/support/warranty/" class="text-decoration-none">
                     <div class="card h-100 text-center shadow">
                         <img class="card-img-top" src="https://dummyimage.com/300x300/dee2e6/6c757d.jpg" alt="품질보증 이미지">
                         <div class="card-body">
                             <h2 class="card-title">품질보증 정보</h2>
-                            <p class="card-text">제품 품질보증 정책 및 조건을 확인하세요.</p>
+                            <p class="card-text">제품 품질보증 정책 및 조건</p>
                         </div>
                     </div>
                 </a>
             </div>
         </div>
     </div>
+    <!-- Footer-->
+    <footer class="bg-light py-4 border-top">
+        <div class="container text-center">
+            <!-- 회사 정보 -->
+            <div class="mb-3">
+                <h5>ChocoTech</h5>
+                <p>&copy; 2025 ChocoTech. All Rights Reserved.</p>
+            </div>
+            <!-- 소셜 미디어 링크 -->
+            <div>
+                <h5>Follow Us</h5>
+                <a href="#" class="text-decoration-none me-2">Facebook</a>
+                <a href="#" class="text-decoration-none me-2">Twitter</a>
+                <a href="#" class="text-decoration-none">Instagram</a>
+            </div>
+        </div>
+    </footer>
 </div>
 
 
