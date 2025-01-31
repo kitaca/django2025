@@ -121,22 +121,19 @@
 <!-- Core theme JS-->
 <script src="js/scripts.js"></script>
 <script>
-    window.addEventListener('DOMContentLoaded', event => {
+    document.getElementById('navbarToggler').addEventListener('click', function () {
+        const nav1 = document.getElementById('navbarContent1');
+        const nav2 = document.getElementById('navbarContent2');
+        const isNav1Open = nav1.classList.contains('show');
+        const isNav2Open = nav2.classList.contains('show');
 
-        // Toggle the side navigation
-        const sidebarToggle = document.body.querySelector('#sidebarToggle');
-        if (sidebarToggle) {
-            // Uncomment Below to persist sidebar toggle between refreshes
-            // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
-            //     document.body.classList.toggle('sb-sidenav-toggled');
-            // }
-            sidebarToggle.addEventListener('click', event => {
-                event.preventDefault();
-                document.body.classList.toggle('sb-sidenav-toggled');
-                localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-            });
+        if (isNav1Open || isNav2Open) {
+            nav1.classList.remove('show');
+            nav2.classList.remove('show');
+        } else {
+            nav1.classList.add('show');
+            nav2.classList.add('show');
         }
-
     });
 </script>
 </body>

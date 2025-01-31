@@ -15,15 +15,18 @@
 </head>
 <body>
 <div id="wrapper">
-    <!-- Top navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Top navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-first">
         <div class="container-fluid">
             <a class="navbar-brand mx-auto" href="/">ChocoTech</a>
-            <button class="navbar-toggler" type="button" id="navbarToggler" aria-label="Toggle navigation">
+            <!-- 하나의 토글 버튼으로 두 개의 네비게이션 컨트롤 -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent1, #navbarContent2" aria-controls="navbarContent1 navbarContent2"
+                    aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarContent1">
-                <ul class="navbar-nav ms-auto text-">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="/login/">로그인</a></li>
                     <li class="nav-item"><a class="nav-link" href="/signup/">회원가입</a></li>
                     <li class="nav-item dropdown">
@@ -41,7 +44,7 @@
     </nav>
 
     <!-- Second Top Navigation (Menu Bar) -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom navbar-second">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarContent2">
                 <ul class="navbar-nav justify-content-evenly w-100">
@@ -53,6 +56,7 @@
             </div>
         </div>
     </nav>
+
 
     <!-- Page content-->
     <div class="container px-4 px-lg-5">
@@ -99,23 +103,28 @@
                 </a>
             </div>
         </div>
+
+        <!-- TOP 버튼 (맨 아래에 추가) -->
+        <button id="topButton" aria-label="Scroll to Top">▲</button>
+
     </div>
 
     <!-- Footer-->
-    <footer class="bg-light py-4 border-top">
-        <div class="container text-center">
+    <footer class="py-5 bg-dark mt-auto">
+        <div class="container px-4 px-lg-5">
             <!-- 회사 정보 -->
-            <div class="mb-3">
+            <div class="m-0 text-center text-white">
                 <h5>ChocoTech</h5>
                 <p>&copy; 2025 ChocoTech. All Rights Reserved.</p>
+                <!-- 소셜 미디어 링크 -->
+                <div>
+                    <h5>Follow Us</h5>
+                    <a href="#" class="text-decoration-none me-2">Facebook</a>
+                    <a href="#" class="text-decoration-none me-2">Twitter</a>
+                    <a href="#" class="text-decoration-none">Instagram</a>
+                </div>
             </div>
-            <!-- 소셜 미디어 링크 -->
-            <div>
-                <h5>Follow Us</h5>
-                <a href="#" class="text-decoration-none me-2">Facebook</a>
-                <a href="#" class="text-decoration-none me-2">Twitter</a>
-                <a href="#" class="text-decoration-none">Instagram</a>
-            </div>
+
         </div>
     </footer>
 </div>
@@ -124,20 +133,48 @@
 <!-- Core theme JS-->
 <script src="js/scripts.js"></script>
 <script>
-    document.getElementById('navbarToggler').addEventListener('click', function () {
-        const nav1 = document.getElementById('navbarContent1');
-        const nav2 = document.getElementById('navbarContent2');
-        const isNav1Open = nav1.classList.contains('show');
-        const isNav2Open = nav2.classList.contains('show');
+    window.addEventListener('DOMContentLoaded', () => {
+    const secondNavbar = document.querySelector('.navbar-second');
+    const firstNavbarHeight = document.querySelector('.navbar-first').offsetHeight;
 
-        if (isNav1Open || isNav2Open) {
-            nav1.classList.remove('show');
-            nav2.classList.remove('show');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > firstNavbarHeight) {
+            secondNavbar.classList.add('fixed');
         } else {
-            nav1.classList.add('show');
-            nav2.classList.add('show');
+            secondNavbar.classList.remove('fixed');
         }
     });
+});
+
+    window.addEventListener('DOMContentLoaded', () => {
+    const secondNavbar = document.querySelector('.navbar-second');
+    const firstNavbarHeight = document.querySelector('.navbar-first').offsetHeight;
+    const topButton = document.getElementById('topButton');
+
+    window.addEventListener('scroll', () => {
+        // Second Navigation 고정 처리
+        if (window.scrollY > firstNavbarHeight) {
+            secondNavbar.classList.add('fixed');
+        } else {
+            secondNavbar.classList.remove('fixed');
+        }
+
+        // TOP 버튼 표시 처리 (스크롤이 200px 이상 내려가면 보이게 함)
+        if (window.scrollY > 200) {
+            topButton.style.display = 'block';
+        } else {
+            topButton.style.display = 'none';
+        }
+    });
+
+    // TOP 버튼 클릭 시 맨 위로 스크롤 이동
+    topButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
+
+
 </script>
+
 </body>
 </html>
