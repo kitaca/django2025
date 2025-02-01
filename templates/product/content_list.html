@@ -15,42 +15,56 @@
 </head>
 <body>
 <div id="wrapper">
-    <!-- Top navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Top Navigation (로그인, 회원가입, 언어 선택) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-first">
         <div class="container-fluid">
             <a class="navbar-brand mx-auto" href="/">ChocoTech</a>
-            <button class="navbar-toggler" type="button" id="navbarToggler" aria-label="Toggle navigation">
+
+            <!-- 토글 버튼: 모바일에서만 second navigation 포함 -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent" aria-controls="navbarContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarContent1">
-                <ul class="navbar-nav ms-auto text-">
+
+            <!-- 통합된 네비게이션 바 (모바일에서만 second navigation 포함) -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="/login/">로그인</a></li>
                     <li class="nav-item"><a class="nav-link" href="/signup/">회원가입</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">지역</a>
+                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LAN</a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#!">대한민국(국내)</a>
+                            <a class="dropdown-item" href="#!">한국어</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#!">International(국외)</a>
+                            <a class="dropdown-item" href="#!">English</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#!">日本語</a>
                         </div>
                     </li>
                 </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Second Top Navigation (Menu Bar) -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarContent2">
-                <ul class="navbar-nav justify-content-evenly w-100">
+                <!-- 모바일에서만 second navigation 포함 -->
+                <ul class="navbar-nav justify-content-evenly w-100 mt-3 mt-lg-0 d-lg-none">
                     <li class="nav-item"><a class="nav-link" href="/company/">소개</a></li>
                     <li class="nav-item"><a class="nav-link" href="/product/">제품</a></li>
                     <li class="nav-item"><a class="nav-link" href="/service/">고객지원</a></li>
                     <li class="nav-item"><a class="nav-link" href="/community/">커뮤니티</a></li>
                 </ul>
             </div>
+        </div>
+    </nav>
+
+    <!-- Second Navigation (데스크톱 전용) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom navbar-second d-none d-lg-flex">
+        <div class="container-fluid">
+            <ul class="navbar-nav justify-content-evenly w-100">
+                <li class="nav-item"><a class="nav-link" href="/company/">소개</a></li>
+                <li class="nav-item"><a class="nav-link" href="/product/">제품</a></li>
+                <li class="nav-item"><a class="nav-link" href="/service/">고객지원</a></li>
+                <li class="nav-item"><a class="nav-link" href="/community/">커뮤니티</a></li>
+            </ul>
         </div>
     </nav>
     <!-- Page content-->
@@ -73,6 +87,9 @@
             </div>
         </div>
         {% endfor %}
+
+        <!-- TOP 버튼 (맨 아래에 추가) -->
+        <button id="topButton" aria-label="Scroll to Top">▲</button>
 
         <!-- Call to Action-->
         <!-- Content Row-->
@@ -104,23 +121,34 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
     <script>
-        window.addEventListener('DOMContentLoaded', event => {
+        window.addEventListener('DOMContentLoaded', () => {
+        const secondNavbar = document.querySelector('.navbar-second');
+        const firstNavbar = document.querySelector('.navbar-first');
+        const navbarToggler = document.querySelector('.navbar-toggler');
 
-            // Toggle the side navigation
-            const sidebarToggle = document.body.querySelector('#sidebarToggle');
-            if (sidebarToggle) {
-                // Uncomment Below to persist sidebar toggle between refreshes
-                // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
-                //     document.body.classList.toggle('sb-sidenav-toggled');
-                // }
-                sidebarToggle.addEventListener('click', event => {
-                    event.preventDefault();
-                    document.body.classList.toggle('sb-sidenav-toggled');
-                    localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-                });
+        const firstNavbarHeight = firstNavbar.offsetHeight;
+
+        window.addEventListener('scroll', () => {
+            if (window.innerWidth >= 992) {
+                // 데스크톱: 스크롤 시 second navigation을 고정
+                if (window.scrollY > firstNavbarHeight) {
+                    secondNavbar.classList.add('fixed');
+                } else {
+                    secondNavbar.classList.remove('fixed');
+                }
+            } else {
+                // 모바일: top navigation을 항상 고정
+                firstNavbar.classList.add('fixed');
             }
-
         });
+
+        // 토글 버튼이 활성화될 때도 top navigation이 고정되도록 설정
+        navbarToggler.addEventListener('click', () => {
+            firstNavbar.classList.toggle('bg-dark');
+        });
+    });
+
+
     </script>
 </div>
 </body>

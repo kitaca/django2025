@@ -10,69 +10,9 @@
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
-    <style>
-        /* 기본 상태에서는 relative */
-    .navbar-second {
-        position: relative;
-        transition: all 0.3s ease-in-out;
-    }
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 
-    /* 데스크톱: 스크롤하면 second navigation을 fixed-top으로 */
-    @media (min-width: 992px) {
-        .navbar-second.fixed {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1050;
-            background-color: #212529;
-        }
-    }
-
-    /* 모바일: top navigation 항상 fixed */
-    @media (max-width: 991px) {
-        .navbar-first {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1050;
-            background-color: #212529;
-        }
-
-        /* 모바일에서 본문이 네비게이션과 겹치지 않도록 padding 추가 */
-        body {
-            padding-top: 56px; /* top navigation 높이 */
-        }
-    }
-
-
-
-                /* TOP 버튼 기본 스타일 (초기에는 숨김) */
-                #topButton {
-                    position: fixed;
-                    bottom: 30px;
-                    right: 30px;
-                    display: none;
-                    background-color: #212529; /* Dark Mode */
-                    color: white;
-                    border: none;
-                    border-radius: 50%;
-                    width: 50px;
-                    height: 50px;
-                    font-size: 18px;
-                    cursor: pointer;
-                    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-                    transition: opacity 0.3s ease-in-out;
-                }
-
-                /* 버튼 hover 효과 */
-                #topButton:hover {
-                    background-color: #343a40; /* 조금 더 밝은 다크 색상 */
-                }
-    </style>
 </head>
 <body>
 <div id="wrapper">
@@ -81,14 +21,14 @@
         <div class="container-fluid">
             <a class="navbar-brand mx-auto" href="/">ChocoTech</a>
 
-            <!-- 토글 버튼: 모바일에서만 second navigation 포함 -->
+            <!-- 토글 버튼 -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarContent" aria-controls="navbarContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- 통합된 네비게이션 바 (모바일에서만 second navigation 포함) -->
+            <!-- 통합된 네비게이션 바 -->
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="/login/">로그인</a></li>
@@ -96,18 +36,16 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LAN</a>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#!">한국어</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#!">English</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#!">日本語</a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="#">한국어</a>
+                            <a class="dropdown-item" href="#">English</a>
+                            <a class="dropdown-item" href="#">日本語</a>
                         </div>
                     </li>
                 </ul>
 
                 <!-- 모바일에서만 second navigation 포함 -->
-                <ul class="navbar-nav justify-content-evenly w-100 mt-3 mt-lg-0 d-lg-none">
+                <ul class="navbar-nav justify-content-evenly d-lg-none">
                     <li class="nav-item"><a class="nav-link" href="/company/">소개</a></li>
                     <li class="nav-item"><a class="nav-link" href="/product/">제품</a></li>
                     <li class="nav-item"><a class="nav-link" href="/service/">고객지원</a></li>
@@ -128,6 +66,9 @@
             </ul>
         </div>
     </nav>
+
+    <!-- TOP 버튼 -->
+    <button id="topButton" aria-label="Scroll to Top">▲</button>
 
 
     <!-- Page content-->
@@ -176,8 +117,6 @@
             </div>
         </div>
 
-        <!-- TOP 버튼 (맨 아래에 추가) -->
-        <button id="topButton" aria-label="Scroll to Top">▲</button>
 
     </div>
 
@@ -206,31 +145,39 @@
 <script src="js/scripts.js"></script>
 <script>
     window.addEventListener('DOMContentLoaded', () => {
-    const secondNavbar = document.querySelector('.navbar-second');
-    const firstNavbar = document.querySelector('.navbar-first');
-    const navbarToggler = document.querySelector('.navbar-toggler');
+        const secondNavbar = document.querySelector('.navbar-second');
+        const firstNavbar = document.querySelector('.navbar-first');
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const firstNavbarHeight = firstNavbar.offsetHeight;
 
-    const firstNavbarHeight = firstNavbar.offsetHeight;
-
-    window.addEventListener('scroll', () => {
-        if (window.innerWidth >= 992) {
-            // 데스크톱: 스크롤 시 second navigation을 고정
-            if (window.scrollY > firstNavbarHeight) {
-                secondNavbar.classList.add('fixed');
+        window.addEventListener('scroll', () => {
+            if (window.innerWidth >= 992) {
+                // 데스크톱: 스크롤 시 second navigation을 고정
+                if (window.scrollY > firstNavbarHeight + 10) {
+                    secondNavbar.classList.add('fixed');
+                } else {
+                    secondNavbar.classList.remove('fixed');
+                }
             } else {
-                secondNavbar.classList.remove('fixed');
+                // 모바일: top navigation을 항상 고정
+                firstNavbar.classList.add('fixed');
             }
-        } else {
-            // 모바일: top navigation을 항상 고정
-            firstNavbar.classList.add('fixed');
-        }
-    });
+        });
 
-    // 토글 버튼이 활성화될 때도 top navigation이 고정되도록 설정
-    navbarToggler.addEventListener('click', () => {
-        firstNavbar.classList.toggle('bg-dark');
+        // TOP 버튼 동작
+        const topButton = document.getElementById('topButton');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                topButton.style.display = 'block';
+            } else {
+                topButton.style.display = 'none';
+            }
+        });
+
+        topButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     });
-});
 
 
 </script>
