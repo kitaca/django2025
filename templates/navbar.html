@@ -13,7 +13,16 @@
         <!-- 통합된 네비게이션 바 (모바일에서만 second navigation 포함) -->
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="/login/">로그인</a></li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <form action="{% url 'accounts:logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="nav-link">{{user.username}}(로그아웃)</button>
+                    </form>
+                </li>
+                {% else %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'accounts:login' %}">로그인</a></li>
+                {% endif %}
                 <li class="nav-item"><a class="nav-link" href="/signup/">회원가입</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
@@ -28,6 +37,7 @@
                         <a class="dropdown-item" href="#!">日本語</a>
                     </div>
                 </li>
+
             </ul>
 
             <!-- 모바일에서만 second navigation 포함 -->
