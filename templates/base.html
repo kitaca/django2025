@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>제품 페이지</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+{% include "navbar.html" %}
+{% block content %}
+{% endblock %}
+{% include "footer.html" %}
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+    const secondNavbar = document.querySelector('.navbar-second');
+    const firstNavbar = document.querySelector('.navbar-first');
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const firstNavbarHeight = firstNavbar.offsetHeight;
+
+    window.addEventListener('scroll', () => {
+        if (window.innerWidth >= 992) {
+            // 데스크톱: 스크롤 시 second navigation을 고정
+            if (window.scrollY > firstNavbarHeight + 10) {
+                secondNavbar.classList.add('fixed');
+            } else {
+                secondNavbar.classList.remove('fixed');
+            }
+        } else {
+            // 모바일: top navigation을 항상 고정
+            firstNavbar.classList.add('fixed');
+        }
+    });
+
+    // TOP 버튼 동작
+    const topButton = document.getElementById('topButton');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 200) {
+            topButton.style.display = 'block';
+        } else {
+            topButton.style.display = 'none';
+        }
+    });
+
+    topButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
+
+
+</script>
+</body>
+</html>

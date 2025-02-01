@@ -1,186 +1,50 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
-    <title>메인 페이지</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
-
-</head>
-<body>
-<div id="wrapper">
-    <!-- Top Navigation (로그인, 회원가입, 언어 선택) -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-first">
-        <div class="container-fluid">
-            <a class="navbar-brand mx-auto" href="/">ChocoTech</a>
-
-            <!-- 토글 버튼 -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarContent" aria-controls="navbarContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- 통합된 네비게이션 바 -->
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="/login/">로그인</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/signup/">회원가입</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LAN</a>
-                        <div class="dropdown-menu dropdown-menu-end">
-                            <a class="dropdown-item" href="#">한국어</a>
-                            <a class="dropdown-item" href="#">English</a>
-                            <a class="dropdown-item" href="#">日本語</a>
-                        </div>
-                    </li>
-                </ul>
-
-                <!-- 모바일에서만 second navigation 포함 -->
-                <ul class="navbar-nav justify-content-evenly d-lg-none">
-                    <li class="nav-item"><a class="nav-link" href="/company/">소개</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/product/">제품</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/service/">고객지원</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/community/">커뮤니티</a></li>
-                </ul>
-            </div>
+{% extends 'base.html' %}
+{% block content %}
+<!-- Page content-->
+<div class="container px-4 px-lg-5">
+    <!-- Heading Row-->
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0"
+                                   src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..."/></div>
+        <div class="col-lg-5">
+            <h1 class="font-weight-light">메인 페이지</h1>
+            <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it,
+                but it
+                makes a great use of the standard Bootstrap core components. Feel free to use this template for any
+                project you want!</p>
+            <a class="btn btn-primary" href="#">Call to Action!</a>
         </div>
-    </nav>
-
-    <!-- Second Navigation (데스크톱 전용) -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom navbar-second d-none d-lg-flex">
-        <div class="container-fluid">
-            <ul class="navbar-nav justify-content-evenly w-100">
-                <li class="nav-item"><a class="nav-link" href="/company/">소개</a></li>
-                <li class="nav-item"><a class="nav-link" href="/product/">제품</a></li>
-                <li class="nav-item"><a class="nav-link" href="/service/">고객지원</a></li>
-                <li class="nav-item"><a class="nav-link" href="/community/">커뮤니티</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- TOP 버튼 -->
-    <button id="topButton" aria-label="Scroll to Top">▲</button>
-
-
-    <!-- Page content-->
-    <div class="container px-4 px-lg-5">
-        <!-- Heading Row-->
-        <div class="row gx-4 gx-lg-5 align-items-center my-5">
-            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0"
-                                       src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..."/></div>
-            <div class="col-lg-5">
-                <h1 class="font-weight-light">메인 페이지</h1>
-                <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it,
-                    but it
-                    makes a great use of the standard Bootstrap core components. Feel free to use this template for any
-                    project you want!</p>
-                <a class="btn btn-primary" href="#">Call to Action!</a>
-            </div>
-        </div>
-        <!-- Call to Action-->
-        <div class="card text-white bg-secondary my-5 py-4 text-center">
-            <div class="card-body"><p class="text-white m-0">This call to action card is a great place to showcase some
-                important information or display a clever tagline!</p></div>
-        </div>
-        <!-- Content Row-->
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-6 mb-5">
-                <a href="/product/" class="text-decoration-none">
-                    <div class="card h-auto">
-                        <img class="card-img-top" src="https://dummyimage.com/500x300/ccc/000.jpg"
-                             alt="Product Introduction">
-                        <div class="card-body">
-                            <h3 class="card-title text-center">신제품</h3>
-                        </div>
+    </div>
+    <!-- Call to Action-->
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+        <div class="card-body"><p class="text-white m-0">This call to action card is a great place to showcase some
+            important information or display a clever tagline!</p></div>
+    </div>
+    <!-- Content Row-->
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-6 mb-5">
+            <a href="/product/" class="text-decoration-none">
+                <div class="card h-auto">
+                    <img class="card-img-top" src="https://dummyimage.com/500x300/ccc/000.jpg"
+                         alt="Product Introduction">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">신제품</h3>
                     </div>
-                </a>
-            </div>
-            <div class="col-md-6 mb-5">
-                <a href="/product/" class="text-decoration-none">
-                    <div class="card h-auto">
-                        <img class="card-img-top" src="https://dummyimage.com/500x300/ccc/000.jpg"
-                             alt="Product Introduction">
-                        <div class="card-body">
-                            <h3 class="card-title text-center">신제품</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
-
-
+        <div class="col-md-6 mb-5">
+            <a href="/product/" class="text-decoration-none">
+                <div class="card h-auto">
+                    <img class="card-img-top" src="https://dummyimage.com/500x300/ccc/000.jpg"
+                         alt="Product Introduction">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">신제품</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
 
-    <!-- Footer-->
-    <footer class="py-5 bg-dark mt-auto">
-        <div class="container px-4 px-lg-5">
-            <!-- 회사 정보 -->
-            <div class="m-0 text-center text-white">
-                <h5>ChocoTech</h5>
-                <p>&copy; 2025 ChocoTech. All Rights Reserved.</p>
-                <!-- 소셜 미디어 링크 -->
-                <div>
-                    <h5>Follow Us</h5>
-                    <a href="#" class="text-decoration-none me-2">Facebook</a>
-                    <a href="#" class="text-decoration-none me-2">Twitter</a>
-                    <a href="#" class="text-decoration-none">Instagram</a>
-                </div>
-            </div>
-
-        </div>
-    </footer>
 </div>
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
-<script src="js/scripts.js"></script>
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        const secondNavbar = document.querySelector('.navbar-second');
-        const firstNavbar = document.querySelector('.navbar-first');
-        const navbarToggler = document.querySelector('.navbar-toggler');
-        const firstNavbarHeight = firstNavbar.offsetHeight;
-
-        window.addEventListener('scroll', () => {
-            if (window.innerWidth >= 992) {
-                // 데스크톱: 스크롤 시 second navigation을 고정
-                if (window.scrollY > firstNavbarHeight + 10) {
-                    secondNavbar.classList.add('fixed');
-                } else {
-                    secondNavbar.classList.remove('fixed');
-                }
-            } else {
-                // 모바일: top navigation을 항상 고정
-                firstNavbar.classList.add('fixed');
-            }
-        });
-
-        // TOP 버튼 동작
-        const topButton = document.getElementById('topButton');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 200) {
-                topButton.style.display = 'block';
-            } else {
-                topButton.style.display = 'none';
-            }
-        });
-
-        topButton.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    });
-
-
-</script>
-
-</body>
-</html>
+{% endblock %}

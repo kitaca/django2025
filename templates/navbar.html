@@ -1,0 +1,57 @@
+<!-- Top Navigation (로그인, 회원가입, 언어 선택) -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-first">
+    <div class="container-fluid">
+        <a class="navbar-brand mx-auto" href="/">ChocoTech</a>
+
+        <!-- 토글 버튼: 모바일에서만 second navigation 포함 -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarContent" aria-controls="navbarContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- 통합된 네비게이션 바 (모바일에서만 second navigation 포함) -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/login/">로그인</a></li>
+                <li class="nav-item"><a class="nav-link" href="/signup/">회원가입</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                       data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-globe"></i> <!-- 지구본 아이콘 -->
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#!">한국어</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#!">English</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#!">日本語</a>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- 모바일에서만 second navigation 포함 -->
+            <ul class="navbar-nav justify-content-evenly w-100 mt-3 mt-lg-0 d-lg-none">
+                <li class="nav-item"><a class="nav-link" href="/company/">소개</a></li>
+                <li class="nav-item"><a class="nav-link" href="/product/">제품</a></li>
+                <li class="nav-item"><a class="nav-link" href="/service/">고객지원</a></li>
+                <li class="nav-item"><a class="nav-link" href="/community/">커뮤니티</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Second Navigation (데스크톱 전용) -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom navbar-second d-none d-lg-flex">
+    <div class="container-fluid">
+        <ul class="navbar-nav justify-content-evenly w-100">
+            <li class="nav-item"><a class="nav-link" href="/company/">소개</a></li>
+            <li class="nav-item"><a class="nav-link" href="/product/">제품</a></li>
+            <li class="nav-item"><a class="nav-link" href="/service/">고객지원</a></li>
+            <li class="nav-item"><a class="nav-link" href="/community/">커뮤니티</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- TOP 버튼 (맨 아래에 추가) -->
+<button id="topButton" aria-label="Scroll to Top">▲</button>
