@@ -59,6 +59,19 @@
     });
 });
 
+    document.addEventListener("DOMContentLoaded", function () {
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const navbarContent = document.querySelector("#navbarContent");
+
+    document.addEventListener("click", function (event) {
+        const isClickInside = navbarContent.contains(event.target) || navbarToggler.contains(event.target);
+
+        if (!isClickInside && navbarContent.classList.contains("show")) {
+            navbarToggler.click(); // 토글 버튼을 강제로 클릭하여 닫음
+        }
+    });
+});
+
 
 </script>
 </body>
