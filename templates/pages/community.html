@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container px-4 px-lg-5">
+    <h1 class="my-4 text-center">커뮤니티</h1>
+
+    <!-- 검색 창 & 새 글 작성 버튼 -->
+    <div class="d-flex justify-content-between mb-3">
+        <form class="input-group w-25">
+            <input type="text" class="form-control" placeholder="게시글 검색..." aria-label="게시글 검색">
+            <button class="btn btn-outline-secondary" type="submit">검색</button>
+        </form>
+        <button class="btn btn-primary">새 글 작성</button>
+    </div>
+
+    <!-- 게시글 목록 -->
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action">
+            <h5 class="mb-1">게시글 제목 1</h5>
+            <small class="text-muted">작성자 · 날짜</small>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+            <h5 class="mb-1">게시글 제목 2</h5>
+            <small class="text-muted">작성자 · 날짜</small>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+            <h5 class="mb-1">게시글 제목 3</h5>
+            <small class="text-muted">작성자 · 날짜</small>
+        </a>
+    </div>
+
+    <!-- 페이지네이션 -->
+    <nav class="mt-4">
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><button class="page-link">이전</button></li>
+            <li class="page-item active"><span class="page-link">1</span></li>
+            <li class="page-item"><button class="page-link">다음</button></li>
+        </ul>
+    </nav>
+</div>
+{% endblock %}

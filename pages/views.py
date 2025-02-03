@@ -14,3 +14,6 @@ def signup(request):
 
 def service(request):
     return render(request, 'pages/service.html')
+
+def community(request):
+    return render(request, 'pages/community.html')
